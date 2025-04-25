@@ -22,11 +22,11 @@ peso_toranjas = dados[5000:,1]
 
 #criar gráfico
 
-import matplotlib.pyplot as mpl
+import matplotlib.pyplot as plt
 
-mpl.plot(diametro_laranjas, peso_laranjas)
-mpl.plot(diametro_toranjas, peso_toranjas)
-mpl.legend(['laranja', 'toranja'])
-mpl.show()
+plt.plot(diametro_laranjas, peso_laranjas)
+plt.plot(diametro_toranjas, peso_toranjas)
+plt.legend(['laranja', 'toranja'])
+plt.show()
 
 

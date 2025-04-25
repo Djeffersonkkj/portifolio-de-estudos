@@ -1,8 +1,8 @@
 import numpy as np #estou importando a biblioteca numpy e dizendo que seu prefixo será np
 
 #trazer os arquivos para o código
-
-dados = np.loadtxt('https://raw.githubusercontent.com/alura-cursos/numpy/refs/heads/dados/apples_ts.csv' ,delimiter=',', usecols=np.arange(1,88,1))
+url = 'https://raw.githubusercontent.com/alura-cursos/numpy/refs/heads/dados/apples_ts.csv'
+dados = np.loadtxt( url ,delimiter=',', usecols=np.arange(1,88,1))
 
 #fazendo a transposição dos dados (troca linha por coluna)
 dados_transposto = dados.T
