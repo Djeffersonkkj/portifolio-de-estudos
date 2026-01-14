@@ -1,0 +1,61 @@
+use("aula_mongo");
+
+db.getCollection("crud_básico").insertMany([
+  { nome: "Ana Silva", idade: 20, telefone: "(85) 98123-0001", cidade: "Fortaleza" },
+  { nome: "Bruno Costa", idade: 22, telefone: "(85) 98123-0002" },
+  { nome: "Carla Rocha", idade: 19, cidade: "Sobral" },
+  { nome: "Diego Lima", idade: 21, telefone: "(85) 98123-0004", cidade: "Juazeiro" },
+  { nome: "Eduarda Alves", idade: 23 },
+  { nome: "Felipe Oliveira", idade: 20, cidade: "Maracanaú" },
+  { nome: "Gabriela Porto", idade: 22, telefone: "(85) 98123-0007" },
+  { nome: "Heitor Martins", idade: 24, telefone: "(85) 98123-0008", cidade: "Aquiraz" },
+  { nome: "Isabela Mendes", idade: 18 },
+  { nome: "João Pedro", idade: 25, cidade: "Caucaia" },
+  { nome: "Karina Souza", idade: 21, telefone: "(85) 98123-0011" },
+  { nome: "Lucas Fernandes", idade: 22, telefone: "(85) 98123-0012", cidade: "Fortaleza" },
+  { nome: "Mariana Braga", idade: 20, cidade: "Pacatuba" },
+  { nome: "Nicolas Ramos", idade: 23, telefone: "(85) 98123-0015" },
+  { nome: "Olivia Pinto", idade: 19 }
+]);
+
+
+db.getCollection("crud_básico").find().limit(20).pretty()
+
+db.getCollection("crud_básico").countDocuments()
+
+//Operadores de comparação
+// > maior que
+db.getCollection("crud_básico").find({ idade: { $gt: 20 } });
+
+// < menor que
+db.getCollection("crud_básico").find({ idade: { $lt: 22 } });
+
+// >= maior ou igual
+db.getCollection("crud_básico").find({ idade: { $gte: 23 } });
+
+// <= menor ou igual
+db.getCollection("crud_básico").find({ idade: { $lte: 19 } });
+
+// != diferente
+db.getCollection("crud_básico").find({ cidade: { $ne: "Fortaleza" } });
+
+// = igual (normal)
+db.getCollection("crud_básico").find({ cidade: "Sobral" });
+
+// Para visualizar de forma mais bonita
+db.getCollection("crud_básico").find({ idade: { $gt: 20 } }).pretty();
+
+//UPDATE - Atualizando apenas um campo com $set
+
+db.getCollection("crud_básico").updateOne(
+  { nome: "Bruno Costa" },   // filtro para encontrar o aluno
+  { $set: { idade: 99 } }    // altera somente a idade
+);
+
+db.getCollection("crud_básico").find({ nome: "Bruno Costa" }).pretty();
+
+//DELETE - Excluir o documento que foi atualizado
+
+db.getCollection("crud_básico").deleteOne({ nome: "Bruno Costa" });
+
+db.getCollection("crud_básico").find({ nome: "Bruno Costa" });

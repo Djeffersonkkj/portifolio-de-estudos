@@ -1,0 +1,5 @@
+use("aula_mongo");
+
+
+db.getCollection("crud_básico").find({ nome: "Bruno Costa" });
+
