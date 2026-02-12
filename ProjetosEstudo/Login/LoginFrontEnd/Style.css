@@ -69,7 +69,7 @@ header {
     background:
         linear-gradient(
             to right,
-        #000 0%,
+        #000 5%,
         #000 52%,              /* preto sólido por mais tempo */
         rgba(0,0,0,0.85) 62%,
         rgba(0,0,0,0.5) 77%,
