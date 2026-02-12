@@ -67,15 +67,15 @@ header {
     flex-direction: column;
     height: 674px;
     background:
-    linear-gradient(
-        to right,
-      #000 0%,
-      #000 40%,              /* preto sólido por mais tempo */
-      rgba(0,0,0,0.85) 55%,
-      rgba(0,0,0,0.5) 70%,
-      rgba(0,0,0,0) 90%
-        ),
-        url("Image/ImagemFundoSite4.png");
+        linear-gradient(
+            to right,
+        #000 0%,
+        #000 52%,              /* preto sólido por mais tempo */
+        rgba(0,0,0,0.85) 62%,
+        rgba(0,0,0,0.5) 77%,
+        rgba(0,0,0,0) 90%
+            ),
+            url("Image/ImagemFundoSite4.png");
 
     background-repeat: no-repeat;
     background-position: right;
@@ -84,7 +84,7 @@ header {
     justify-content: center;
 }
 #TextoCriarConta {
-    max-width: 500px;
+    max-width: 800px;
     width: 100%;
 }
 #TextoCriarConta > p  {
@@ -167,10 +167,11 @@ header {
 #Oquee {
     text-align: justify;
     margin-top: -20px;
-    box-shadow:  0 -4px 10px rgba(18, 2, 54, 0.5);
+    box-shadow: 0 -4px 10px rgba(18, 2, 54, 0.5);
     padding: 80px 6vw;
     background-color: whitesmoke;
     transition: 1s;
+    z-index: 11;
 }
 
 #Oquee:hover {
@@ -192,4 +193,10 @@ header {
 #Oquee strong {
     background-color: #259df879;
     padding: 0 2px;
+}
+
+#Diferenciais {
+    padding: 30px 6vw;
+    background-color: #0f3c5f;
+    box-shadow: inset 0px 4px 10px rgba(18, 2, 54, 0.5)
 }
