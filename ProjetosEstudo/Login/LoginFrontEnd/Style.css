@@ -98,7 +98,7 @@ header {
     color: azure;
 }
 
-#DestaqueTitulo {
+.DestaqueTitulo {
     color: #1F80CB;
 }
 
@@ -162,4 +162,34 @@ header {
 
 #RodaPeCriar > a:active {
     color: #b8b8b8;
+}
+
+#Oquee {
+    text-align: justify;
+    margin-top: -20px;
+    box-shadow:  0 -4px 10px rgba(18, 2, 54, 0.5);
+    padding: 80px 6vw;
+    background-color: whitesmoke;
+    transition: 1s;
+}
+
+#Oquee:hover {
+    transform: translateY(4px);
+}
+
+#Oquee > h2 {
+    max-width: 500px;
+    margin: 20px auto;
+
+}
+
+#Oquee > p {
+    max-width: 500px;
+    margin: 15px auto;
+    font-size: larger;
+}
+
+#Oquee strong {
+    background-color: #259df879;
+    padding: 0 2px;
 }
