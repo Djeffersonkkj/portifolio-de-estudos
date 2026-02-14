@@ -32,25 +32,18 @@ class Macaco
         Bananas.Add(bananaPega);
         Energia -= 1;
         bananaPega.PegaramBanana();
-        Console.WriteLine($"O macaco {Nome} pegou uma banana {bananaPega.Tipo}.");
     }
 
-    public void ComerBanana()
+    public void ComerBanana(int indiceBanana)
     {
         if (Bananas.Count == 0)
         {
-            Console.WriteLine($"O nacaco {Nome} não possui bananas para comer.");
-            return;
+            throw new InvalidOperationException("O macaco não possui bananas para comer.");
         } 
-        Console.WriteLine($"Escolha a banana que {Nome} deseja comer:\n");
-        ExibirBananas();
-        Console.Write("\nDigite o indice da banana: ");
-        int bananaComida = int.Parse(Console.ReadLine());
 
-        Bananas[bananaComida].BananaComida();
-        Energia += Bananas[bananaComida].Energia;
-        Console.WriteLine($"O macaco {Nome} comeu uma banana {Bananas[bananaComida].Tipo}, e recuperou {Bananas[bananaComida].Energia} em energia.");
-        Bananas.RemoveAt(bananaComida);
+        Bananas[indiceBanana].BananaComida();
+        Energia += Bananas[indiceBanana].Energia;
+        Bananas.RemoveAt(indiceBanana);
     }
 
     public void DarBanana( Macaco macacoDestinatario)
