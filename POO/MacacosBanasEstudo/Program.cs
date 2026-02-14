@@ -24,14 +24,22 @@ while (loop)
         break;
 
         case "3":
-            Controller.PegarBanana();
+            Controller.CadastrarBolsa();
         break;
 
         case "4":
-            Controller.ComerBanana();
+            Controller.PegarBolsa();
         break;
 
         case "5":
+            Controller.PegarBanana();
+        break;
+
+        case "6":
+            Controller.ComerBanana();
+        break;
+
+        case "7":
             Controller.DarBanana();
         break;
     }

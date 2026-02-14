@@ -2,9 +2,11 @@ static class FlorestaService
 {
     private static readonly List<Macaco> _macacos = [];
     private static readonly List<Banana> _bananas = [];
+    private static readonly List<Bolsa> _bolsas = [];
 
     public static IReadOnlyList<Macaco> Macacos => _macacos;
     public static IReadOnlyList<Banana> Bananas => _bananas;
+    public static IReadOnlyList<Bolsa> Bolsas => _bolsas;
     
 
     public static void AdicionarMacaco(string nome)
@@ -23,5 +25,17 @@ static class FlorestaService
     {
         _bananas.RemoveAt(IndiceBanana);
     }
+
+    public static void AdicionarBolsa(string material, int limiteArmazenamento)
+    {
+        Bolsa NovaBolsa = new(material, limiteArmazenamento);
+        _bolsas.Add(NovaBolsa);
+    }
+
+    public static void RemoverBolsa(int IndiceBolsa)
+    {
+        _bolsas.RemoveAt(IndiceBolsa);
+    }
+
 
 }

@@ -2,11 +2,9 @@ using System.ComponentModel;
 
 class Macaco
 {
-    private readonly List<Banana> _bananas;
+    public Bolsa BolsaVestida { get; private set; }
     public string Nome { get; private set; }
     public int Energia { get; private set; }
-
-    public IReadOnlyList<Banana> Bananas => _bananas;
 
     public Macaco(string nome)
     {
@@ -16,41 +14,52 @@ class Macaco
         }
         Nome = nome;
         Energia = 100;
-        _bananas = [];
+        BolsaVestida = null;
     }
 
-    public void PegarBanana(Banana bananaPega)
+    public void VestirBolsa(Bolsa bolsa)
     {
-        ArgumentNullException.ThrowIfNull(bananaPega);
+        ArgumentNullException.ThrowIfNull(bolsa);
 
-        _bananas.Add(bananaPega);
+        BolsaVestida = bolsa;
+        Energia -= 2;
+    }
+
+    public void PegarBanana(Banana banana)
+    {
+        ArgumentNullException.ThrowIfNull(banana);
+
+        BolsaVestida.ArmazenarBanana(banana);
         Energia -= 1;
     }
 
-    public void ComerBanana(int indiceBananaComida)
+    public void ComerBanana(int indexBananaComida)
     {
-        if (_bananas.Count == 0)
+        if (BolsaVestida.Bananas.Count == 0)
         {
             throw new InvalidOperationException("O macaco não possui bananas para comer.");
         } 
-        Banana BananaComida = _bananas[indiceBananaComida];
+        Banana BananaComida = BolsaVestida.Bananas[indexBananaComida];
 
         Energia += BananaComida.Energia;
-        _bananas.RemoveAt(indiceBananaComida);
+        BolsaVestida.RemoverBanana(indexBananaComida);
     }
 
     public void DarBanana( Macaco macacoDestinatario, int indexBananaDoada)
     {
         ArgumentNullException.ThrowIfNull(macacoDestinatario);
 
-        Banana BananaDoada = _bananas[indexBananaDoada];
+        Banana BananaDoada = BolsaVestida.Bananas[indexBananaDoada];
 
-        macacoDestinatario._bananas.Add(BananaDoada);
-        _bananas.RemoveAt(indexBananaDoada);
+        macacoDestinatario.BolsaVestida.ArmazenarBanana(BananaDoada);
+        BolsaVestida.RemoverBanana(indexBananaDoada);
     }
 
     public override string ToString()
     {
-        return $"Nome: {Nome} | Bananas: {_bananas.Count} | Energia: {Energia}";
+        int LimiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
+        int QuantidadeBananas = BolsaVestida != null ? BolsaVestida.Bananas.Count : 0;
+
+        return $"Nome: {Nome} | BolsaVestida: {QuantidadeBananas}/{LimiteArmazenamento} | Energia: {Energia}";
     }
 }
