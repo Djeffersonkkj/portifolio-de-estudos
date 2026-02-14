@@ -2,10 +2,8 @@ class Banana
 {
     public string Tipo { get; private set; }
     public int Energia { get; private set; }
-    public bool EstaEmPosse {get; private set; }
-    public bool FoiComida { get; private set; }
 
-    public Banana(string tipo, int energia = 0)
+    public Banana(string tipo, int energia)
     {
         if (string.IsNullOrWhiteSpace(tipo))
         {
@@ -15,19 +13,12 @@ class Banana
         {
             throw new ArgumentException("Uma banana não pode ter energia negativa.");
         }
-        EstaEmPosse = false;
-        FoiComida = false;
         Tipo = tipo;
-        Energia += energia;
+        Energia = energia;
     }
 
-    public void PegaramBanana()
+    public override string ToString()
     {
-        EstaEmPosse = true;
-    }
-
-    public void BananaComida()
-    {
-        FoiComida = true;
+        return $"Tipo: Banana {Tipo} | Energia: {Energia}";
     }
 }
