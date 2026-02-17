@@ -19,40 +19,52 @@ class Macaco
 
     public void VestirBolsa(Bolsa bolsa)
     {
-        ArgumentNullException.ThrowIfNull(bolsa);
-
+        if (BolsaVestida != null)
+        {
+            throw new InvalidOperationException("Não é possível vestir mais de uma bolsa.");
+        }
         BolsaVestida = bolsa;
         Energia -= 2;
     }
 
     public void PegarBanana(Banana banana)
     {
-        ArgumentNullException.ThrowIfNull(banana);
-
         BolsaVestida.ArmazenarBanana(banana);
         Energia -= 1;
     }
 
     public void ComerBanana(int indexBananaComida)
     {
-        if (BolsaVestida.Bananas.Count == 0)
+        IReadOnlyList<Banana> bananasNaBolsa = BolsaVestida.Bananas;
+
+        if (bananasNaBolsa.Count == 0)
         {
             throw new InvalidOperationException("O macaco não possui bananas para comer.");
         } 
-        Banana BananaComida = BolsaVestida.Bananas[indexBananaComida];
+
+        Banana BananaComida = bananasNaBolsa[indexBananaComida];
 
         Energia += BananaComida.Energia;
         BolsaVestida.RemoverBanana(indexBananaComida);
     }
 
-    public void DarBanana( Macaco macacoDestinatario, int indexBananaDoada)
+    public void DarBanana( Macaco Destinatario, int indexBananaDoada)
     {
-        ArgumentNullException.ThrowIfNull(macacoDestinatario);
-
         Banana BananaDoada = BolsaVestida.Bananas[indexBananaDoada];
 
-        macacoDestinatario.BolsaVestida.ArmazenarBanana(BananaDoada);
+        Destinatario.BolsaVestida.ArmazenarBanana(BananaDoada);
         BolsaVestida.RemoverBanana(indexBananaDoada);
+    }
+
+    public void SoltarBolsa()
+    {
+        if (BolsaVestida == null)
+        {
+            throw new InvalidOperationException("É necessário estar vestindo uma bolsa para soltar.");
+        }
+
+        Floresta.ReceberBolsa(BolsaVestida);
+        BolsaVestida = null;
     }
 
     public override string ToString()

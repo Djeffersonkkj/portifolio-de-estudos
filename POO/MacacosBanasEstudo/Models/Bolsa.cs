@@ -1,15 +1,12 @@
 class Bolsa
 {  
-    private static int _proximoId = 1;
     private readonly List<Banana> _bananas = [];
-    public int Id { get; private set; }
     public string Material { get; private set; }
     public int LimiteArmazenamento { get; private set; }
     public IReadOnlyList<Banana> Bananas => _bananas;
 
     public Bolsa(string material, int limiteArmazenamento)
     {
-        Id = _proximoId++;
         Material = material;
         LimiteArmazenamento = limiteArmazenamento;
         _bananas = [];
@@ -31,7 +28,7 @@ class Bolsa
 
     public override string ToString()
     {
-        return $"Id: {Id} | Material: {Material} | Armazenamento: {LimiteArmazenamento}";
+        return $"Material: {Material} | Armazenamento: {Bananas.Count}/{LimiteArmazenamento}";
     }
 
 }

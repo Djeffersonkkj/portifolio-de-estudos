@@ -11,57 +11,27 @@ class MainController
             3 | Cadastrar Bolsa
 
             4 | Pegar Bolsa
-            5 | Pegar Banana
-            6 | Comer Banana
-            7 | Dar Bananaa
+            5 | Largar Bolsa
+            6 | Pegar Banana
+            7 | Comer Banana
+            8 | Dar Bananaa
 
             0 | Fechar Sistema");
     }
 
     public void CadastrarMacaco()
     {
-        string NomeMacaco;
-        Console.Clear();
-        Console.Write("Qual o nome do novo macaco? ");
-        NomeMacaco = Console.ReadLine();
-
-        FlorestaService.AdicionarMacaco(NomeMacaco);
-
-        Console.Clear();
-        Console.WriteLine($"O macaco {NomeMacaco} chegou à floresta!");
+        MacacoServices.CadastrarMacaco();
     }
 
     public void CadastrarBanana()
     {
-        string TipoBanana;
-        int EnergiaBanana;
-
-        Console.Clear();
-        Console.Write("Qual o tipo da nova banana? ");
-        TipoBanana = Console.ReadLine();
-        Console.Write("Quanta energia a banana dá? ");
-        EnergiaBanana = int.Parse(Console.ReadLine());
-        FlorestaService.AdicionarBanana(TipoBanana, EnergiaBanana);
-
-
-        Console.Clear();
-        Console.WriteLine($"Uma banana {TipoBanana} brotou na floresta!");
+        BananaServices.CadastrarBanana();
     }
 
     public void CadastrarBolsa()
     {
-        string Material;
-        int ArmazenamentoLimite;
-
-        Console.Clear();
-        Console.Write("Qual o material da bolsa? ");
-        Material = Console.ReadLine();
-        Console.Write("Qual o limite da nova bolsa? ");
-        ArmazenamentoLimite = int.Parse(Console.ReadLine());
-        FlorestaService.AdicionarBolsa(Material, ArmazenamentoLimite);
-
-        Console.Clear();
-        Console.WriteLine($"Uma bolsa nova brotou na floresta!");
+        BolsaServices.CadastrarBolsa();
     }
 
     public void PegarBolsa()
@@ -71,32 +41,37 @@ class MainController
         Macaco MacacoPegador;
         Bolsa BolsaVestida;
 
-        Console.Clear();
-        Console.WriteLine("Macacos na floresta:\n");
-        for (int i = 0; i < FlorestaService.Macacos.Count; i++)
-        {
-            string MacacoDescricao = FlorestaService.Macacos[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-        Console.Write("Qual o macaco que vai pegar a banana? ");
-        IndiceMacacoPegador = int.Parse(Console.ReadLine());
-        MacacoPegador = FlorestaService.Macacos[IndiceMacacoPegador];
 
         Console.Clear();
-        Console.WriteLine("Bolsas no chão:\n");
-        for (int i = 0; i < FlorestaService.Bolsas.Count; i++)
-        {
-            string DescricaoBolsa = FlorestaService.Bolsas[i].ToString();
-            Console.WriteLine($"[{i}] {DescricaoBolsa}");
-        }
+        FlorestaServices.ExibirMacacos();
+        Console.Write("Qual o macaco que vai pegar a bolsa? ");
+        IndiceMacacoPegador = int.Parse(Console.ReadLine());
+        MacacoPegador = Floresta.Macacos[IndiceMacacoPegador];
+
+        Console.Clear();
+        FlorestaServices.ExibirBolsas();
         Console.Write($"Qual bolsa o {MacacoPegador.Nome} vai pegar? ");
         IndiceBolsaVestida = int.Parse(Console.ReadLine());
-        BolsaVestida = FlorestaService.Bolsas[IndiceBolsaVestida];
+        BolsaVestida = Floresta.Bolsas[IndiceBolsaVestida];
 
         Console.Clear();
         MacacoPegador.VestirBolsa(BolsaVestida);
         Console.WriteLine($"O macaco {MacacoPegador.Nome} pegou uma bolsa de {BolsaVestida.Material}");
-        FlorestaService.RemoverBolsa(IndiceBolsaVestida);
+        Floresta.RemoverBolsa(IndiceBolsaVestida);
+    }
+
+    public void SoltarBolsa()
+    {
+        Macaco macaco;
+
+        Console.Clear();
+        FlorestaServices.ExibirMacacos();
+        Console.Write("Digite o index do macaco que vai soltar a bolsa: ");
+        macaco = FlorestaServices.SeletorMacaco();
+
+        Console.Clear();
+        macaco.SoltarBolsa();
+        Console.WriteLine($"O macaco {macaco.Nome} largou suma bolsa na floresta");
     }
 
     public void PegarBanana()
@@ -107,116 +82,74 @@ class MainController
         Banana BananaPega;
 
         Console.Clear();
-        Console.WriteLine("Macacos na floresta:\n");
-        for (int i = 0; i < FlorestaService.Macacos.Count; i++)
-        {
-            string MacacoDescricao = FlorestaService.Macacos[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
+        FlorestaServices.ExibirMacacos();
         Console.Write("Qual o macaco que vai pegar a banana? ");
         IndiceMacacoPegador = int.Parse(Console.ReadLine());
-        MacacoPegador = FlorestaService.Macacos[IndiceMacacoPegador];
+        MacacoPegador = Floresta.Macacos[IndiceMacacoPegador];
 
         Console.Clear();
-        Console.WriteLine("Bananas nas bananeiras:\n");
-        for (int banana = 0; banana < FlorestaService.Bananas.Count; banana++)
-        {
-            string DescricaoBanana = FlorestaService.Bananas[banana].ToString();
-            Console.WriteLine($"[{banana}] {DescricaoBanana}");
-        }
+        FlorestaServices.ExibirBananas();
         Console.Write($"Qual banana o {MacacoPegador.Nome} vai pegar? ");
         IndiceBananaPega = int.Parse(Console.ReadLine());
-        BananaPega = FlorestaService.Bananas[IndiceBananaPega];
+        BananaPega = Floresta.Bananas[IndiceBananaPega];
 
         Console.Clear();
         MacacoPegador.PegarBanana(BananaPega);
         Console.WriteLine($"O macaco {MacacoPegador.Nome} pegou uma banana {BananaPega.Tipo}");
-        FlorestaService.RemoverBanana(IndiceBananaPega);
+        Floresta.RemoverBanana(IndiceBananaPega);
     }
 
     public void ComerBanana()
     {
-        int IndiceMacacoComedor;
-        int IndiceBananaComida;
-        Macaco MacacoComedor;
-        IReadOnlyList<Banana> BolsaDeBananas;
-        Banana BananaComida;
+        int indexBananaComida;
+        Macaco macacoComedor;
+        Bolsa bolsaDeBananas;
+        Banana bananaComida;
 
         Console.Clear();
-        Console.WriteLine("Macacos na floresta:\n");
-        for (int i = 0; i < FlorestaService.Macacos.Count; i++)
-        {
-            string MacacoDescricao = FlorestaService.Macacos[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-        Console.Write("Qual macaco vai comer a banana? ");
-        IndiceMacacoComedor = int.Parse(Console.ReadLine());
-        MacacoComedor = FlorestaService.Macacos[IndiceMacacoComedor];
-        BolsaDeBananas = MacacoComedor.BolsaVestida.Bananas;
+        FlorestaServices.ExibirMacacos();
+        Console.WriteLine("Digite o index do macaco: ");
+        macacoComedor = FlorestaServices.SeletorMacaco();
+        bolsaDeBananas = macacoComedor.BolsaVestida;
 
         Console.Clear();
-        Console.WriteLine($"Bananas do {MacacoComedor.Nome}:\n");
-        for (int i = 0; i < BolsaDeBananas.Count; i++)
-        {
-            String BananaDescricao = BolsaDeBananas[i].ToString();
-            Console.WriteLine($"[{i}]  {BananaDescricao}");
-        };
-        Console.Write("Qual banana será comida? ");
-        IndiceBananaComida = int.Parse(Console.ReadLine());
-        BananaComida = BolsaDeBananas[IndiceBananaComida];
+        MacacoServices.ExibirBananas(macacoComedor);
+        Console.WriteLine("digite o index da banana que será comida: ");
+        indexBananaComida = MacacoServices.SeletorBananaIndex(macacoComedor);
+        bananaComida = bolsaDeBananas.Bananas[indexBananaComida];
 
         Console.Clear();
-        Console.WriteLine($"O macaco {MacacoComedor.Nome} Comeu uma banana {BananaComida.Tipo} e recuperou {BananaComida.Energia} em energia.");
-        MacacoComedor.ComerBanana(IndiceBananaComida);
+        Console.WriteLine($"O macaco {macacoComedor.Nome} Comeu uma banana {bananaComida.Tipo} e recuperou {bananaComida.Energia} em energia.");
+        macacoComedor.ComerBanana(indexBananaComida);
     }
 
     public void DarBanana()
     {
-        int IndiceMacacoRemetente;
-        int IndiceMacacoDestinatario;
-        int IndiceBananaDoada;
-        Macaco MacacoRemetente;
-        Macaco MacacoDestinatario;
-        IReadOnlyList<Banana> BolsaDeBananas;
+        int indiceBananaDoada;
+        Macaco macacoRemetente;
+        Macaco macacoDestinatario;
+        IReadOnlyList<Banana> bolsaDeBananas;
 
         Console.Clear();
-        Console.WriteLine("Macacos na floresta:\n");
-        for (int i = 0; i < FlorestaService.Macacos.Count; i++)
-        {
-            string MacacoDescricao = FlorestaService.Macacos[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-        Console.Write("Qual macaco vai dar a banana? ");
-        IndiceMacacoRemetente = int.Parse(Console.ReadLine());
-        MacacoRemetente = FlorestaService.Macacos[IndiceMacacoRemetente];
-        BolsaDeBananas = MacacoRemetente.BolsaVestida.Bananas;
+        FlorestaServices.ExibirMacacos();
+        Console.Write("Digite o index do macaco que vai dar a banana: ");
+        macacoRemetente = FlorestaServices.SeletorMacaco();
+        bolsaDeBananas = macacoRemetente.BolsaVestida.Bananas;
 
         Console.Clear();
-        Console.WriteLine("Macacos na floresta:\n");
-        for (int i = 0; i < FlorestaService.Macacos.Count; i++)
-        {
-            string MacacoDescricao = FlorestaService.Macacos[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-        Console.Write("Qual macaco vai receber a banana? ");
-        IndiceMacacoDestinatario = int.Parse(Console.ReadLine());
-        MacacoDestinatario = FlorestaService.Macacos[IndiceMacacoDestinatario];
+        FlorestaServices.ExibirMacacos();
+        Console.Write("Digite o index do macaco que vai receber a banana: ");
+        macacoDestinatario = FlorestaServices.SeletorMacaco();
 
         Console.Clear();
-        Console.WriteLine($"Bananas do {MacacoRemetente.Nome}:\n");
-        for (int i = 0; i < BolsaDeBananas.Count; i++)
-        {
-            String BananaDescricao = BolsaDeBananas[i].ToString();
-            Console.WriteLine($"[{i}]  {BananaDescricao}");
-        };
-        ;
-        Console.Write($"Qual banana o {MacacoRemetente.Nome} vai dar? ");
-        IndiceBananaDoada = int.Parse(Console.ReadLine());
-        Banana BananaDoada = BolsaDeBananas[IndiceBananaDoada];
+        MacacoServices.ExibirBananas(macacoRemetente);
+        Console.Write($"Qual banana o {macacoRemetente.Nome} vai dar? ");
+        indiceBananaDoada = MacacoServices.SeletorBananaIndex(macacoRemetente);
+        Banana BananaDoada = bolsaDeBananas[indiceBananaDoada];
 
         Console.Clear();
-        MacacoRemetente.DarBanana(MacacoDestinatario, IndiceBananaDoada);
-        Console.WriteLine($"O macaco {MacacoRemetente.Nome} deu uma banana {BananaDoada.Tipo} para {MacacoDestinatario}");
+        macacoRemetente.DarBanana(macacoDestinatario, indiceBananaDoada);
+        Console.WriteLine($"O macaco {macacoRemetente.Nome} deu uma banana {BananaDoada.Tipo} para {macacoDestinatario}");
     }
 
 }

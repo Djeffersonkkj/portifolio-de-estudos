@@ -32,14 +32,18 @@ while (loop)
         break;
 
         case "5":
-            Controller.PegarBanana();
+            Controller.SoltarBolsa();
         break;
 
         case "6":
-            Controller.ComerBanana();
+            Controller.PegarBanana();
         break;
 
         case "7":
+            Controller.ComerBanana();
+        break;
+
+        case "8":
             Controller.DarBanana();
         break;
     }

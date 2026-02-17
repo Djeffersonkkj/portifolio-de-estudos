@@ -1,4 +1,4 @@
-static class FlorestaService
+static class Floresta
 {
     private static readonly List<Macaco> _macacos = [];
     private static readonly List<Banana> _bananas = [];
@@ -30,6 +30,11 @@ static class FlorestaService
     {
         Bolsa NovaBolsa = new(material, limiteArmazenamento);
         _bolsas.Add(NovaBolsa);
+    }
+
+    public static void ReceberBolsa(Bolsa bolsa)
+    {
+        _bolsas.Add(bolsa);
     }
 
     public static void RemoverBolsa(int IndiceBolsa)
