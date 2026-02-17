@@ -42,36 +42,39 @@ class Macaco
             throw new InvalidOperationException("O macaco não possui bananas para comer.");
         } 
 
-        Banana BananaComida = bananasNaBolsa[indexBananaComida];
+        Banana bananaComida = bananasNaBolsa[indexBananaComida];
 
-        Energia += BananaComida.Energia;
+        Energia += bananaComida.Energia;
         BolsaVestida.RemoverBanana(indexBananaComida);
     }
 
-    public void DarBanana( Macaco Destinatario, int indexBananaDoada)
+    public void DarBanana( Macaco destinatario, int indexBananaDoada)
     {
         Banana BananaDoada = BolsaVestida.Bananas[indexBananaDoada];
+        Bolsa bolsaDestinatario = destinatario.BolsaVestida;
 
-        Destinatario.BolsaVestida.ArmazenarBanana(BananaDoada);
+        bolsaDestinatario.ArmazenarBanana(BananaDoada);
         BolsaVestida.RemoverBanana(indexBananaDoada);
     }
 
-    public void SoltarBolsa()
+    public Bolsa SoltarBolsa()
     {
         if (BolsaVestida == null)
         {
             throw new InvalidOperationException("É necessário estar vestindo uma bolsa para soltar.");
         }
 
-        Floresta.ReceberBolsa(BolsaVestida);
+        Bolsa bolsaLargada = BolsaVestida;
         BolsaVestida = null;
+
+        return bolsaLargada;
     }
 
     public override string ToString()
     {
-        int LimiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
-        int QuantidadeBananas = BolsaVestida != null ? BolsaVestida.Bananas.Count : 0;
+        int limiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
+        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Bananas.Count : 0;
 
-        return $"Nome: {Nome} | BolsaVestida: {QuantidadeBananas}/{LimiteArmazenamento} | Energia: {Energia}";
+        return $"Nome: {Nome} | BolsaVestida: {quantidadeBananas}/{limiteArmazenamento} | Energia: {Energia}";
     }
 }

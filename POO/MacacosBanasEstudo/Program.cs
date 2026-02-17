@@ -1,13 +1,21 @@
-﻿MainController Controller = new();
+﻿Floresta floresta = new();
+BananaServices bananaServices = new(floresta);
+BolsaServices bolsaServices = new(floresta);
+MacacoServices macacoServices = new(floresta);
+MainController Controller = new(
+    bananaServices,
+    bolsaServices,
+    macacoServices);
+
 bool loop = true;
 
 while (loop)
 {
-    string Opcao;
+    string opcao;
 
     Controller.ExibirMenu();
-    Opcao = Console.ReadLine();
-    switch (Opcao)
+    opcao = Console.ReadLine();
+    switch (opcao)
     {
         case "0":
             Console.Clear();

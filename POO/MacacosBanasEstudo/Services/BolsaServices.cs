@@ -1,18 +1,39 @@
 class BolsaServices
 {
-    public static void CadastrarBolsa()
+    private readonly Floresta _floresta;
+
+    public BolsaServices(Floresta floresta)
     {
-        string Material;
-        int ArmazenamentoLimite;
+        _floresta = floresta;
+    }
+    public void CriarBolsa(string material, int armazenamentoLimite)
+    {
+        
+        Bolsa novaBolsa;
 
-        Console.Clear();
-        Console.Write("Qual o material da bolsa? ");
-        Material = Console.ReadLine();
-        Console.Write("Qual o limite da nova bolsa? ");
-        ArmazenamentoLimite = int.Parse(Console.ReadLine());
-        Floresta.AdicionarBolsa(Material, ArmazenamentoLimite);
+        novaBolsa = new Bolsa(material, armazenamentoLimite);
+        _floresta.AdicionarBolsa(novaBolsa);
 
-        Console.Clear();
-        Console.WriteLine($"Uma bolsa nova brotou na floresta!");
+    }
+
+    public IReadOnlyList<Bolsa> ObterTodasBolsas()
+    {
+        return _floresta.Bolsas;
+    }
+
+    public Bolsa SelecionarBolsaPorIndex(int index)
+    {
+        Bolsa bolsa = _floresta.Bolsas[index];
+        return bolsa;
+    }
+
+    public void RemoverBolsaPorIndex(int index)
+    {
+        _floresta.RemoverBolsa(index);
+    }
+
+    public void DevolverBolsaParaFloresta(Bolsa bolsa)
+    {
+        _floresta.ReceberBolsa(bolsa);
     }
 }

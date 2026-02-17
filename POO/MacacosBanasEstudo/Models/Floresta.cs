@@ -1,43 +1,40 @@
-static class Floresta
+class Floresta
 {
-    private static readonly List<Macaco> _macacos = [];
-    private static readonly List<Banana> _bananas = [];
-    private static readonly List<Bolsa> _bolsas = [];
+    private readonly List<Macaco> _macacos = [];
+    private readonly List<Banana> _bananas = [];
+    private readonly List<Bolsa> _bolsas = [];
 
-    public static IReadOnlyList<Macaco> Macacos => _macacos;
-    public static IReadOnlyList<Banana> Bananas => _bananas;
-    public static IReadOnlyList<Bolsa> Bolsas => _bolsas;
+    public IReadOnlyList<Macaco> Macacos => _macacos;
+    public IReadOnlyList<Banana> Bananas => _bananas;
+    public IReadOnlyList<Bolsa> Bolsas => _bolsas;
     
 
-    public static void AdicionarMacaco(string nome)
+    public void AdicionarMacaco(Macaco macaco)
     {
-        Macaco NovoMacaco = new(nome);
-        _macacos.Add(NovoMacaco);
+        _macacos.Add(macaco);
     }
 
-    public static void AdicionarBanana(string tipo, int energia)
+    public void AdicionarBanana(Banana banana)
     {
-        Banana NovaBanana = new(tipo, energia);
-        _bananas.Add(NovaBanana);
+        _bananas.Add(banana);
     }
 
-    public static void RemoverBanana(int IndiceBanana)
+    public void RemoverBanana(int IndiceBanana)
     {
         _bananas.RemoveAt(IndiceBanana);
     }
 
-    public static void AdicionarBolsa(string material, int limiteArmazenamento)
+    public void AdicionarBolsa(Bolsa Bolsa)
     {
-        Bolsa NovaBolsa = new(material, limiteArmazenamento);
-        _bolsas.Add(NovaBolsa);
+        _bolsas.Add(Bolsa);
     }
 
-    public static void ReceberBolsa(Bolsa bolsa)
+    public void ReceberBolsa(Bolsa bolsa)
     {
         _bolsas.Add(bolsa);
     }
 
-    public static void RemoverBolsa(int IndiceBolsa)
+    public void RemoverBolsa(int IndiceBolsa)
     {
         _bolsas.RemoveAt(IndiceBolsa);
     }

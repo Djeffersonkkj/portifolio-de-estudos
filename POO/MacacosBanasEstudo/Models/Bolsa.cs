@@ -7,6 +7,9 @@ class Bolsa
 
     public Bolsa(string material, int limiteArmazenamento)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(material);
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(limiteArmazenamento);
+
         Material = material;
         LimiteArmazenamento = limiteArmazenamento;
         _bananas = [];

@@ -1,21 +1,34 @@
 class BananaServices
 {
-    public static void CadastrarBanana()
+    private readonly Floresta _floresta;
+
+    public BananaServices(Floresta floresta)
     {
-        string TipoBanana;
-        int EnergiaBanana;
+        _floresta = floresta;
+    }
+    public void CriarBanana(string tipoBanana, int energiaBanana)
+    {
 
-        Console.Clear();
-        Console.Write("Qual o tipo da nova banana? ");
-        TipoBanana = Console.ReadLine();
-        Console.Write("Quanta energia a banana dá? ");
-        EnergiaBanana = int.Parse(Console.ReadLine());
-        Floresta.AdicionarBanana(TipoBanana, EnergiaBanana);
+        Banana novaBanana;
 
-
-        Console.Clear();
-        Console.WriteLine($"Uma banana {TipoBanana} brotou na floresta!");
+        novaBanana = new Banana(tipoBanana, energiaBanana);
+        _floresta.AdicionarBanana(novaBanana);
     }
 
+    public IReadOnlyList<Banana> ObterTodasBananas()
+    {
+        return _floresta.Bananas;
+    }
+
+    public Banana SelecionarBananaPorIndex(int index)
+    {
+        Banana banana = _floresta.Bananas[index];
+        return banana;
+    }
+
+    public void RemoverBananaDaFloresta(int banana)
+    {
+        _floresta.RemoverBanana(banana);
+    }
 
 }
