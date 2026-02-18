@@ -2,19 +2,23 @@ using System.ComponentModel;
 
 class Macaco
 {
-    public Bolsa BolsaVestida { get; private set; }
     public string Nome { get; private set; }
-    public int Energia { get; private set; }
+    public Bolsa BolsaVestida { get; private set; }
+    public decimal Energia { get; protected set; }
+    public decimal Agilidade { get; protected set; }
+    protected decimal _limiteEnergia;
 
-    public Macaco(string nome)
+    public Macaco(string nome, decimal limiteEnergia, decimal agilidade)
     {
         if (string.IsNullOrWhiteSpace(nome))
         {
             throw new ArgumentException("O nome não pode ser nulo ou conter apenas espaços.");
         }
         Nome = nome;
-        Energia = 100;
         BolsaVestida = null;
+        Energia = limiteEnergia;
+        Agilidade = agilidade;
+        _limiteEnergia = limiteEnergia;
     }
 
     public void VestirBolsa(Bolsa bolsa)
@@ -33,7 +37,7 @@ class Macaco
         Energia -= 1;
     }
 
-    public void ComerBanana(int indexBananaComida)
+    public void ComerBanana(Banana banana)
     {
         IReadOnlyList<Banana> bananasNaBolsa = BolsaVestida.Bananas;
 
@@ -41,20 +45,21 @@ class Macaco
         {
             throw new InvalidOperationException("O macaco não possui bananas para comer.");
         } 
+        if (Energia == _limiteEnergia)
+        {
+            throw new InvalidOperationException("Limite de energia atingido");
+        }
 
-        Banana bananaComida = bananasNaBolsa[indexBananaComida];
-
-        Energia += bananaComida.Energia;
-        BolsaVestida.RemoverBanana(indexBananaComida);
+        Energia = Math.Min(Energia + banana.Energia, _limiteEnergia);
+        BolsaVestida.RemoverBanana(banana);
     }
 
-    public void DarBanana( Macaco destinatario, int indexBananaDoada)
+    public void DarBanana( Macaco destinatario, Banana banana)
     {
-        Banana BananaDoada = BolsaVestida.Bananas[indexBananaDoada];
         Bolsa bolsaDestinatario = destinatario.BolsaVestida;
 
-        bolsaDestinatario.ArmazenarBanana(BananaDoada);
-        BolsaVestida.RemoverBanana(indexBananaDoada);
+        bolsaDestinatario.ArmazenarBanana(banana);
+        BolsaVestida.RemoverBanana(banana);
     }
 
     public Bolsa SoltarBolsa()
@@ -68,6 +73,11 @@ class Macaco
         BolsaVestida = null;
 
         return bolsaLargada;
+    }
+
+    public void GastarEnergia(decimal energiaGasta)
+    {
+        Energia -= energiaGasta;
     }
 
     public override string ToString()

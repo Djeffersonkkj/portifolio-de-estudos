@@ -1,20 +1,22 @@
 class Banana
 {
     public string Tipo { get; private set; }
-    public int Energia { get; private set; }
+    public decimal Energia { get; private set; }
 
-    public Banana(string tipo, int energia)
+    public Banana(string tipo, decimal energia)
     {
         if (string.IsNullOrWhiteSpace(tipo))
         {
             throw new ArgumentException("O tipo não pode ser nulo ou conter apenas espaços.");
         }
-        if (energia < 0)
-        {
-            throw new ArgumentException("Uma banana não pode ter energia negativa.");
-        }
+
         Tipo = tipo;
         Energia = energia;
+    }
+
+    public void Envenenar(decimal veneno)
+    {
+        Energia = -(Energia + veneno);
     }
 
     public override string ToString()

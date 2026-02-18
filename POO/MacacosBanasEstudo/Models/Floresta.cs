@@ -19,9 +19,9 @@ class Floresta
         _bananas.Add(banana);
     }
 
-    public void RemoverBanana(int IndiceBanana)
+    public void RemoverBanana(Banana banana)
     {
-        _bananas.RemoveAt(IndiceBanana);
+        _bananas.Remove(banana);
     }
 
     public void AdicionarBolsa(Bolsa Bolsa)
@@ -34,9 +34,9 @@ class Floresta
         _bolsas.Add(bolsa);
     }
 
-    public void RemoverBolsa(int IndiceBolsa)
+    public void RemoverBolsa(Bolsa bolsa)
     {
-        _bolsas.RemoveAt(IndiceBolsa);
+        _bolsas.Remove(bolsa);
     }
 
 

@@ -27,9 +27,9 @@ class BolsaServices
         return bolsa;
     }
 
-    public void RemoverBolsaPorIndex(int index)
+    public void RemoverBolsaFloresta(Bolsa bolsa)
     {
-        _floresta.RemoverBolsa(index);
+        _floresta.RemoverBolsa(bolsa);
     }
 
     public void DevolverBolsaParaFloresta(Bolsa bolsa)

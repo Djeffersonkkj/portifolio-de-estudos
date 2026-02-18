@@ -6,7 +6,7 @@ class BananaServices
     {
         _floresta = floresta;
     }
-    public void CriarBanana(string tipoBanana, int energiaBanana)
+    public void CriarBanana(string tipoBanana, decimal energiaBanana)
     {
 
         Banana novaBanana;
@@ -26,7 +26,7 @@ class BananaServices
         return banana;
     }
 
-    public void RemoverBananaDaFloresta(int banana)
+    public void RemoverBananaDaFloresta(Banana banana)
     {
         _floresta.RemoverBanana(banana);
     }

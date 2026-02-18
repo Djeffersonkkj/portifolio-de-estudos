@@ -1,6 +1,7 @@
 class Bolsa
 {  
     private readonly List<Banana> _bananas = [];
+
     public string Material { get; private set; }
     public int LimiteArmazenamento { get; private set; }
     public IReadOnlyList<Banana> Bananas => _bananas;
@@ -24,9 +25,9 @@ class Bolsa
         _bananas.Add(banana);
     }
 
-    public void RemoverBanana(int IndexBanana)
+    public void RemoverBanana(Banana banana)
     {
-        _bananas.RemoveAt(IndexBanana);
+        _bananas.Remove(banana);
     }
 
     public override string ToString()
