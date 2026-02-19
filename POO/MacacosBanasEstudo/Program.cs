@@ -70,7 +70,7 @@ while (loop)
                     break;
 
                 case "8":
-                    macacoView.RoubarBanana();
+                    macacoView.RoubarBolsa();
                     break;
 
                 case "9":

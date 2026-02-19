@@ -4,6 +4,7 @@ class Sagui : Macaco
 
     public void RoubarBolsa(Macaco vitima)
     {
+
         if (vitima == this)
         {
             throw new InvalidOperationException("Não pode roubar de si mesmo.");
@@ -14,7 +15,14 @@ class Sagui : Macaco
             throw new InvalidOperationException("A vítima não tem bolsa");
         }
 
+        decimal energiaGasta = 10.0m;
+
+        if (Energia <= energiaGasta)
+        {
+            throw new InvalidOperationException("Energia Insuficiente.");
+        }
+
         VestirBolsa(vitima.SoltarBolsa());
-        Energia -= 10.0m;
+        GastarEnergia(energiaGasta);
     }
 }

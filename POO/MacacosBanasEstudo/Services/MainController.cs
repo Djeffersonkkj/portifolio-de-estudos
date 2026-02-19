@@ -14,6 +14,5 @@ class MainController
         BananaServices = bananaServices;
         BolsaServices = bolsaServices;
         MacacoServices = macacoServices;
-
     }
 }

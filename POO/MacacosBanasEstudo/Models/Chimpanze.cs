@@ -4,7 +4,14 @@ class Chimpanze : Macaco
 
     public void EnvenenarBanana(Banana banana)
     {
+        decimal energiaGasta = 10.0m;
+
+        if (Energia <= energiaGasta)
+        {
+            throw new InvalidOperationException("Energia Insuficiente.");
+        }
+
         banana.Envenenar(15);
-        GastarEnergia(10);
+        GastarEnergia(energiaGasta);
     }
 }

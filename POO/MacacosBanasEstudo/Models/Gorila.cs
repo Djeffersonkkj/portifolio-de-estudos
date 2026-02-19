@@ -9,12 +9,19 @@ class Gorila : Macaco
             throw new InvalidOperationException("Um macaco não pode bater em si mesmo.");
         }
 
-        decimal sorteio = Dado.Rolar(100);
+        decimal energiaGasta = 12.5m;
 
+        if (Energia <= energiaGasta)
+        {
+            throw new InvalidOperationException("Energia Insuficiente.");
+        }
+
+        decimal sorteio = Dado.Rolar(100);
+        
         if (sorteio >= 25 * vitima.Agilidade)
         {
             vitima.GastarEnergia(25.00m);     
         }
-        GastarEnergia(12.5m);
+        GastarEnergia(energiaGasta);
     }
 }

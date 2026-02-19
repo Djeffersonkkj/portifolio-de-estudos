@@ -14,6 +14,11 @@ class Floresta
         _macacos.Add(macaco);
     }
 
+    public void RemoverMacaco(Macaco macaco)
+    {
+        _macacos.Remove(macaco);
+    }
+
     public void AdicionarBanana(Banana banana)
     {
         _bananas.Add(banana);

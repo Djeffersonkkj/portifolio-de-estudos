@@ -28,13 +28,19 @@ class Macaco
             throw new InvalidOperationException("Não é possível vestir mais de uma bolsa.");
         }
         BolsaVestida = bolsa;
-        Energia -= 2;
     }
 
     public void PegarBanana(Banana banana)
     {
+        decimal energiaGasta = 1.0m;
+
+        if (Energia <= energiaGasta)
+        {
+            throw new InvalidOperationException("Energia Insuficiente.");
+        }
+        
         BolsaVestida.ArmazenarBanana(banana);
-        Energia -= 1;
+        GastarEnergia(energiaGasta);
     }
 
     public void ComerBanana(Banana banana)

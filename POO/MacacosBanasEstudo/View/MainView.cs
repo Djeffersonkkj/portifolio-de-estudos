@@ -115,8 +115,13 @@ class MainView
             bananaComida = MacacoView.SelecionarBanana(macacoComedor, "Qual banana será comida? ");
 
             Console.Clear();
-            Console.WriteLine($"O macaco {macacoComedor.Nome} Comeu uma banana {bananaComida.Tipo} e recuperou {bananaComida.Energia} em energia.");
+            Console.WriteLine($"O macaco {macacoComedor.Nome} Comeu uma banana {bananaComida.Tipo} e recebeu {bananaComida.Energia} em energia.");
             macacoComedor.ComerBanana(bananaComida);
+            if (macacoComedor.Energia <= 0)
+            {
+                Console.WriteLine($"O macaco {macacoComedor.Nome} comeu uma banana ruim e morreu.");
+                _mainController.MacacoServices.MatarMacaco(macacoComedor);
+            }
         }
         catch (System.Exception ex)
         {

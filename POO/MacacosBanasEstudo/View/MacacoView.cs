@@ -23,7 +23,7 @@ class MacacoView
             6  | Comer Banana
             7  | Dar Banana
 
-            8  | Roubar Banana
+            8  | Roubar Bolsa
             9  | Envenenar Banana
             10 | Bater em um macaco
 
@@ -239,7 +239,7 @@ class MacacoView
         };
     }
 
-    public void RoubarBanana()
+    public void RoubarBolsa()
     {
         try
         {
@@ -251,7 +251,7 @@ class MacacoView
             ladrao = SelecionarSagui("Qual sagui vai roubar um macaco? ");
 
             ListarMacacos();
-            vitima = SelecionarMacaco($"Qual será a vítima de {ladrao}? ");
+            vitima = SelecionarMacaco($"Qual será a vítima de {ladrao.Nome}? ");
 
             Console.Clear();
             ladrao.RoubarBolsa(vitima);
@@ -297,16 +297,30 @@ class MacacoView
         {
             Gorila gorila;
             Macaco vitima;
+            decimal energiaInicialVitima;
 
             ListarGorila();
             gorila = SelecionarGorila("Qual gorila vai bater? ");
 
             ListarMacacos();
             vitima = SelecionarMacaco("Qual macaco vai apanhar? ");
+            energiaInicialVitima = vitima.Energia;
 
             Console.Clear();
             gorila.Bater(vitima);
-            Console.WriteLine($"O macaco {gorila.Nome} tentou bater em {vitima.Nome}");
+            if (energiaInicialVitima == vitima.Energia)
+            {
+                Console.WriteLine($"O macaco {gorila.Nome} tentou bater em {vitima.Nome} e falhou.");
+            }
+            else if (energiaInicialVitima != vitima.Energia)
+            {
+                 Console.WriteLine($"O macaco {gorila.Nome} conseguiu bater em {vitima.Nome}.");
+            }
+            if (vitima.Energia <= 0)
+            {
+                Console.WriteLine($"O macaco {vitima.Nome} foi Morto");
+                _mainController.MacacoServices.MatarMacaco(vitima);
+            }
         }
         catch (System.Exception ex)
         {

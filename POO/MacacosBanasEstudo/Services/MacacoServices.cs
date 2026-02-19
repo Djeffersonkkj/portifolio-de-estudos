@@ -88,4 +88,14 @@ class MacacoServices
 
         return gorila;
     }
+
+    public void MatarMacaco(Macaco macaco)
+    {
+        if (macaco.BolsaVestida != null)
+        {
+            Bolsa bolsa = macaco.SoltarBolsa(); 
+            _floresta.AdicionarBolsa(bolsa);
+        }
+        _floresta.RemoverMacaco(macaco);
+    }
 }
