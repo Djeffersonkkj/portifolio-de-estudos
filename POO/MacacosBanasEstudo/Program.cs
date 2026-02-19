@@ -7,9 +7,14 @@ MainController Controller = new(
     bananaServices,
     bolsaServices,
     macacoServices);
+    
+InicializadorDados inicializador = new(Controller);
+inicializador.Semear();
+
+
 MacacoView macacoView = new(Controller);
 BolsaView bolsaView = new(Controller);
-BananaView bananaView = new(Controller);
+BananaView bananaView = new(Controller); 
 MainView mainView = new(
     Controller, 
     macacoView, 
