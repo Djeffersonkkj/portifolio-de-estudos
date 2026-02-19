@@ -16,7 +16,14 @@ class Banana
 
     public void Envenenar(decimal veneno)
     {
-        Energia = -(Energia + veneno);
+        if (Energia < 0)
+        {
+            Energia -= veneno;
+        }
+        else if (Energia >= 0)
+        {
+            Energia = -(Energia + veneno);
+        }
     }
 
     public override string ToString()

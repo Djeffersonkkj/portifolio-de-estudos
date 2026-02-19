@@ -23,9 +23,7 @@ class MacacoView
             6  | Comer Banana
             7  | Dar Banana
 
-            8  | Roubar Bolsa
-            9  | Envenenar Banana
-            10 | Bater em um macaco
+            8  | Usar Habilidade Especial
 
             0  | voltar");
     }
@@ -100,45 +98,6 @@ class MacacoView
         }
     }
 
-    public void ListarSaguis()
-    {
-        Console.Clear();
-        IReadOnlyList<Sagui> saguis = _mainController.MacacoServices.ObterTodosSaguis();
-        
-        Console.WriteLine("Saguis na floresta:\n");
-        for (int i = 0; i < saguis.Count; i++)
-        {
-            string MacacoDescricao = saguis[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-    }
-
-    public void ListarChimpanze()
-    {
-        Console.Clear();
-        IReadOnlyList<Chimpanze> chimpanzes = _mainController.MacacoServices.ObterTodosChimpanzes();
-        
-        Console.WriteLine("Chimpanzes na floresta:\n");
-        for (int i = 0; i < chimpanzes.Count; i++)
-        {
-            string MacacoDescricao = chimpanzes[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-    }
-
-    public void ListarGorila()
-    {
-        Console.Clear();
-        IReadOnlyList<Gorila> gorilas = _mainController.MacacoServices.ObterTodosGorilas();
-        
-        Console.WriteLine("Gorilas na floresta:\n");
-        for (int i = 0; i < gorilas.Count; i++)
-        {
-            string MacacoDescricao = gorilas[i].ToString();
-            Console.WriteLine($"[{i}] {MacacoDescricao}");
-        }
-    }
-
     public Macaco SelecionarMacaco(string acao)
     {
         int indexMacaco;
@@ -149,42 +108,6 @@ class MacacoView
         macaco = _mainController.MacacoServices.SelecionarMacacoPorIndex(indexMacaco);
 
         return macaco;
-    }
-
-    public Sagui SelecionarSagui(string acao)
-    {
-        int indexSagui;
-        Sagui sagui;
-
-        Console.Write(acao);
-        indexSagui = int.Parse(Console.ReadLine());
-        sagui = _mainController.MacacoServices.SelecionarSaguiPorIndex(indexSagui);
-
-        return sagui;
-    }
-
-    public Chimpanze SelecionarChimpanze(string acao)
-    {
-        int indexChimpanze;
-        Chimpanze Chimpanze;
-
-        Console.Write(acao);
-        indexChimpanze = int.Parse(Console.ReadLine());
-        Chimpanze = _mainController.MacacoServices.SelecionarChimpanzePorIndex(indexChimpanze);
-
-        return Chimpanze;
-    }
-
-    public Gorila SelecionarGorila(string acao)
-    {
-        int indexGorila;
-        Gorila gorila;
-
-        Console.Write(acao);
-        indexGorila = int.Parse(Console.ReadLine());
-        gorila = _mainController.MacacoServices.SelecionarGorilaPorIndex(indexGorila);
-
-        return gorila;
     }
 
     public void SoltarBolsa()
@@ -239,87 +162,27 @@ class MacacoView
         };
     }
 
-    public void RoubarBolsa()
+    public void UsarHabilidadeEspecial()
     {
         try
         {
-
-            Sagui ladrao;
-            Macaco vitima;
-
-            ListarSaguis();
-            ladrao = SelecionarSagui("Qual sagui vai roubar um macaco? ");
+            Macaco atacante;
+            Macaco alvo;
+            string resultado;
 
             ListarMacacos();
-            vitima = SelecionarMacaco($"Qual será a vítima de {ladrao.Nome}? ");
-
-            Console.Clear();
-            ladrao.RoubarBolsa(vitima);
-            Console.WriteLine($"O macaco {ladrao.Nome} roubou {vitima.Nome}");
-
-        }
-        catch (System.Exception ex)
-        {
-            
-            Console.Clear();
-            Console.WriteLine(ex.Message);
-        }
-    }
-
-    public void EnvenenarBanana()
-    {
-        try
-        {
-            Chimpanze chimpanze;
-            Banana banana;
-
-            ListarChimpanze();
-            chimpanze = SelecionarChimpanze("Qual chimpanze vai envenenar uma banana? ");
-
-            ListarBananas(chimpanze);
-            banana = SelecionarBanana(chimpanze, "Qual banana será envenenada?");
-
-            Console.Clear();
-            chimpanze.EnvenenarBanana(banana);
-            Console.WriteLine($"O macaco {chimpanze.Nome} envenenou uma banana");
-        }
-        catch (System.Exception ex)
-        {
-            
-            Console.Clear();
-            Console.WriteLine(ex.Message);
-        }
-    }
-
-    public void Bater()
-    {
-        try
-        {
-            Gorila gorila;
-            Macaco vitima;
-            decimal energiaInicialVitima;
-
-            ListarGorila();
-            gorila = SelecionarGorila("Qual gorila vai bater? ");
+            atacante = SelecionarMacaco("Qual macaco vai realizar a ação especial? ");
 
             ListarMacacos();
-            vitima = SelecionarMacaco("Qual macaco vai apanhar? ");
-            energiaInicialVitima = vitima.Energia;
+            alvo = SelecionarMacaco("Qual será o macaco alvo? ");
 
             Console.Clear();
-            gorila.Bater(vitima);
-            if (energiaInicialVitima == vitima.Energia)
+            resultado = _mainController.MacacoServices.UsarHabilidadeEspecial(atacante, alvo);
+            Console.WriteLine(resultado);
+            if (alvo.Energia <= 0)
             {
-                Console.WriteLine($"O macaco {gorila.Nome} tentou bater em {vitima.Nome} e falhou.");
-            }
-            else if (energiaInicialVitima != vitima.Energia)
-            {
-                 Console.WriteLine($"O macaco {gorila.Nome} conseguiu bater em {vitima.Nome}.");
-            }
-            if (vitima.Energia <= 0)
-            {
-                Console.WriteLine($"O macaco {vitima.Nome} foi Morto");
-                _mainController.MacacoServices.MatarMacaco(vitima);
+                Console.WriteLine(resultado);
+                _mainController.MacacoServices.MatarMacaco(alvo);
             }
         }
         catch (System.Exception ex)

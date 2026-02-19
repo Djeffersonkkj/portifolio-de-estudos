@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-class Macaco
+ abstract class Macaco
 {
     public string Nome { get; private set; }
     public Bolsa BolsaVestida { get; private set; }
@@ -85,6 +85,8 @@ class Macaco
     {
         Energia -= energiaGasta;
     }
+
+    public abstract string UsarHabilidadeEspecial (Macaco alvo);
 
     public override string ToString()
     {

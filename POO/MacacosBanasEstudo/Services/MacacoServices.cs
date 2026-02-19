@@ -35,58 +35,10 @@ class MacacoServices
         return _floresta.Macacos;
     }
 
-    public IReadOnlyList<Sagui> ObterTodosSaguis()
-    {
-        IReadOnlyList<Macaco> macacos = _floresta.Macacos;
-        IReadOnlyList<Sagui> saguis = [.. macacos.OfType<Sagui>()];
-        return saguis;
-    }
-
-    public IReadOnlyList<Chimpanze> ObterTodosChimpanzes()
-    {
-        IReadOnlyList<Macaco> macacos = _floresta.Macacos;
-        IReadOnlyList<Chimpanze> chimpanzes = [.. macacos.OfType<Chimpanze>()];
-        return chimpanzes;
-    }
-
-    public IReadOnlyList<Gorila> ObterTodosGorilas()
-    {
-        IReadOnlyList<Macaco> macacos = _floresta.Macacos;
-        IReadOnlyList<Gorila> gorilas = [.. macacos.OfType<Gorila>()];
-        return gorilas;
-    }
-
     public Macaco SelecionarMacacoPorIndex(int index)
     {
         Macaco macaco = _floresta.Macacos[index];
         return macaco;
-    }
-
-    public Sagui SelecionarSaguiPorIndex(int index)
-    {
-        IReadOnlyList<Sagui> saguis = ObterTodosSaguis();
-
-        Sagui sagui = saguis[index];
-
-        return sagui;
-    }
-
-    public Chimpanze SelecionarChimpanzePorIndex(int index)
-    {
-        IReadOnlyList<Chimpanze> chimpanzes = ObterTodosChimpanzes();
-
-        Chimpanze chimpanze = chimpanzes[index];
-
-        return chimpanze;
-    }
-
-    public Gorila SelecionarGorilaPorIndex(int index)
-    {
-        IReadOnlyList<Gorila> gorilas = ObterTodosGorilas();
-
-        Gorila gorila = gorilas[index];
-
-        return gorila;
     }
 
     public void MatarMacaco(Macaco macaco)
@@ -97,5 +49,13 @@ class MacacoServices
             _floresta.AdicionarBolsa(bolsa);
         }
         _floresta.RemoverMacaco(macaco);
+    }
+
+    public string UsarHabilidadeEspecial(Macaco macacoAtacante, Macaco alvo)
+    {
+        string resultado;
+        resultado = macacoAtacante.UsarHabilidadeEspecial(alvo);
+
+        return resultado;
     }
 }

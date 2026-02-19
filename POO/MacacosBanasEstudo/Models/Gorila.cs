@@ -2,9 +2,9 @@ class Gorila : Macaco
 {
     public Gorila(string nome) : base(nome, 200.0m, 0.5m){}
 
-    public void Bater(Macaco vitima)
+    public void Bater(Macaco alvo)
     {
-        if (vitima == this)
+        if (alvo == this)
         {
             throw new InvalidOperationException("Um macaco não pode bater em si mesmo.");
         }
@@ -18,10 +18,23 @@ class Gorila : Macaco
 
         decimal sorteio = Dado.Rolar(100);
         
-        if (sorteio >= 25 * vitima.Agilidade)
+        if (sorteio >= 25 * alvo.Agilidade)
         {
-            vitima.GastarEnergia(25.00m);     
+            alvo.GastarEnergia(25.00m);     
         }
         GastarEnergia(energiaGasta);
+    }
+
+    public override string UsarHabilidadeEspecial(Macaco alvo)
+    {
+        decimal energiaInicial = alvo.Energia;
+
+        Bater(alvo);
+
+        if (energiaInicial > alvo.Energia)
+        {
+            return $"O macaco {Nome} conseguiu bater em {alvo.Nome}.";
+        }
+        return $"O macaco {Nome} tentou bater em {alvo.Nome} e falhou.";
     }
 }

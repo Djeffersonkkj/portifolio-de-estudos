@@ -75,16 +75,9 @@ while (loop)
                     break;
 
                 case "8":
-                    macacoView.RoubarBolsa();
+                    macacoView.UsarHabilidadeEspecial();
                     break;
 
-                case "9":
-                    macacoView.EnvenenarBanana();
-                    break;
-
-                case "10":
-                    macacoView.Bater();
-                    break;
                 default:
                     Console.Clear();
                     Console.WriteLine("Opçao inválida!");

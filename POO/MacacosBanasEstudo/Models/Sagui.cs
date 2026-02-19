@@ -2,15 +2,15 @@ class Sagui : Macaco
 {
     public Sagui(string nome) : base(nome, 60.0m, 2.0m){}
 
-    public void RoubarBolsa(Macaco vitima)
+    public void RoubarBolsa(Macaco alvo)
     {
 
-        if (vitima == this)
+        if (alvo == this)
         {
             throw new InvalidOperationException("Não pode roubar de si mesmo.");
         }
 
-        if (vitima.BolsaVestida == null)
+        if (alvo.BolsaVestida == null)
         {
             throw new InvalidOperationException("A vítima não tem bolsa");
         }
@@ -22,7 +22,13 @@ class Sagui : Macaco
             throw new InvalidOperationException("Energia Insuficiente.");
         }
 
-        VestirBolsa(vitima.SoltarBolsa());
+        VestirBolsa(alvo.SoltarBolsa());
         GastarEnergia(energiaGasta);
+    }
+
+    public override string UsarHabilidadeEspecial(Macaco alvo)
+    {
+        RoubarBolsa(alvo);
+        return $"O sagui {Nome} roubou a bolsa de {alvo.Nome}";
     }
 }
