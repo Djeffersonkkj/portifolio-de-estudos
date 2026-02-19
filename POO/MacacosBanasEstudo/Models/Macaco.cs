@@ -30,7 +30,7 @@ using System.ComponentModel;
         BolsaVestida = bolsa;
     }
 
-    public void PegarBanana(Banana banana)
+    public void Pegaritem(Iconsumivel item)
     {
         decimal energiaGasta = 1.0m;
 
@@ -39,13 +39,13 @@ using System.ComponentModel;
             throw new InvalidOperationException("Energia Insuficiente.");
         }
         
-        BolsaVestida.ArmazenarBanana(banana);
+        BolsaVestida.Armazenaritem(item);
         GastarEnergia(energiaGasta);
     }
 
-    public void ComerBanana(Banana banana)
+    public void ComerConsumivel(Iconsumivel comida)
     {
-        IReadOnlyList<Banana> bananasNaBolsa = BolsaVestida.Bananas;
+        IReadOnlyList<Iconsumivel> bananasNaBolsa = BolsaVestida.Itens;
 
         if (bananasNaBolsa.Count == 0)
         {
@@ -56,16 +56,16 @@ using System.ComponentModel;
             throw new InvalidOperationException("Limite de energia atingido");
         }
 
-        Energia = Math.Min(Energia + banana.Energia, _limiteEnergia);
-        BolsaVestida.RemoverBanana(banana);
+        Energia = Math.Min(Energia + comida.Energia, _limiteEnergia);
+        BolsaVestida.RemoverItem(comida);
     }
 
-    public void DarBanana( Macaco destinatario, Banana banana)
+    public void DarItem( Macaco destinatario, Iconsumivel item)
     {
         Bolsa bolsaDestinatario = destinatario.BolsaVestida;
 
-        bolsaDestinatario.ArmazenarBanana(banana);
-        BolsaVestida.RemoverBanana(banana);
+        bolsaDestinatario.Armazenaritem(item);
+        BolsaVestida.RemoverItem(item);
     }
 
     public Bolsa SoltarBolsa()
@@ -91,7 +91,7 @@ using System.ComponentModel;
     public override string ToString()
     {
         int limiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
-        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Bananas.Count : 0;
+        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Itens.Count : 0;
 
         return $"Nome: {Nome} | BolsaVestida: {quantidadeBananas}/{limiteArmazenamento} | Energia: {Energia}";
     }

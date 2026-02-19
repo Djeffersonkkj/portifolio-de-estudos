@@ -132,27 +132,27 @@ class MacacoView
         }
     }
 
-    public Banana SelecionarBanana(Macaco macaco, string acao)
+    public Iconsumivel SelecionarItem(Macaco macaco, string acao)
     {
         int indexBanana;
         Bolsa bolsaDeBananas;
-        Banana banana;
+        Iconsumivel item;
 
         bolsaDeBananas = macaco.BolsaVestida;
 
         ListarBananas(macaco);
         Console.WriteLine(acao);
         indexBanana = int.Parse(Console.ReadLine());
-        banana = bolsaDeBananas.Bananas[indexBanana];
+        item = bolsaDeBananas.Itens[indexBanana];
 
-        return banana;
+        return item;
     }
 
     public void ListarBananas(Macaco macaco)
     {
         Console.Clear();
 
-        IReadOnlyList<Banana> bananasNaBolsa = _mainController.MacacoServices.ObterBananas(macaco);
+        IReadOnlyList<Iconsumivel> bananasNaBolsa = _mainController.MacacoServices.ObterItens(macaco);
 
         Console.WriteLine($"Bananas do {macaco.Nome}:\n");
         for (int i = 0; i < bananasNaBolsa.Count; i++)

@@ -5,13 +5,13 @@ class MainView
     private readonly MainController _mainController;
     public MacacoView MacacoView { get; private set; }
     public BolsaView BolsaView { get; private set; }
-    public BananaView BananaView { get; private set; }
+    public IconsumivelView BananaView { get; private set; }
 
     public MainView(
         MainController mainController,
         MacacoView macacoView,
         BolsaView bolsaView,
-        BananaView bananaView)
+        IconsumivelView bananaView)
     {
         _mainController = mainController;
         MacacoView = macacoView;
@@ -79,18 +79,18 @@ class MainView
         try
         {
             Macaco macacoPegador;
-            Banana bananaPega;
+            Iconsumivel bananaPega;
 
             MacacoView.ListarMacacos();
             macacoPegador = MacacoView.SelecionarMacaco("Qual o macaco que vai pegar a banana? ");
 
-            BananaView.ListarBananas();
-            bananaPega = BananaView.SelecionarBananaFloresta($"Qual banana o {macacoPegador.Nome} vai pegar? ");
+            BananaView.ListarItens();
+            bananaPega = BananaView.SelecionarItemFloresta($"Qual banana o {macacoPegador.Nome} vai pegar? ");
 
             Console.Clear();
-            macacoPegador.PegarBanana(bananaPega);
-            Console.WriteLine($"O macaco {macacoPegador.Nome} pegou uma banana {bananaPega.Tipo}");
-            _mainController.BananaServices.RemoverBananaDaFloresta(bananaPega);
+            macacoPegador.Pegaritem(bananaPega);
+            Console.WriteLine($"O macaco {macacoPegador.Nome} pegou um item.");
+            _mainController.IconsumivelServices.RemoveritemDaFloresta(bananaPega);
             
         }
         catch (System.Exception ex)
@@ -106,17 +106,17 @@ class MainView
         {
             
             Macaco macacoComedor;
-            Banana bananaComida;
+            Iconsumivel itemComido;
 
             MacacoView.ListarMacacos();
             macacoComedor = MacacoView.SelecionarMacaco("Qual macaco vai comer banana? ");
             
             MacacoView.ListarBananas(macacoComedor);
-            bananaComida = MacacoView.SelecionarBanana(macacoComedor, "Qual banana será comida? ");
+            itemComido = MacacoView.SelecionarItem(macacoComedor, "Qual banana será comida? ");
 
             Console.Clear();
-            Console.WriteLine($"O macaco {macacoComedor.Nome} Comeu uma banana {bananaComida.Tipo} e recebeu {bananaComida.Energia} em energia.");
-            macacoComedor.ComerBanana(bananaComida);
+            Console.WriteLine($"O macaco {macacoComedor.Nome} Comeu algo e recebeu {itemComido.Energia} em energia.");
+            macacoComedor.ComerConsumivel(itemComido);
             if (macacoComedor.Energia <= 0)
             {
                 Console.WriteLine($"O macaco {macacoComedor.Nome} comeu uma banana ruim e morreu.");
@@ -130,28 +130,28 @@ class MainView
         }
     }
 
-    public void DarBanana()
+    public void DarItem()
     {
         try
         {
             Macaco macacoRemetente;
-            Banana bananaDoada;
+            Iconsumivel itemDoado;
             Macaco macacoDestinatario;
-            Bolsa bolsaDeBananas;
+            Bolsa bolsa;
 
             MacacoView.ListarMacacos();
             macacoRemetente = MacacoView.SelecionarMacaco("Qual macaco vai dar a banana? ");
-            bolsaDeBananas = macacoRemetente.BolsaVestida;
+            bolsa = macacoRemetente.BolsaVestida;
 
             MacacoView.ListarBananas(macacoRemetente);
-            bananaDoada = MacacoView.SelecionarBanana(macacoRemetente, $"Qual banana o {macacoRemetente.Nome} vai dar? ");
+            itemDoado = MacacoView.SelecionarItem(macacoRemetente, $"Qual banana o {macacoRemetente.Nome} vai dar? ");
 
             MacacoView.ListarMacacos();
             macacoDestinatario = MacacoView.SelecionarMacaco("Qual macaco vai receber a banana? ");
 
             Console.Clear();
-            macacoRemetente.DarBanana(macacoDestinatario, bananaDoada);
-            Console.WriteLine($"O macaco {macacoRemetente.Nome} deu uma banana {bananaDoada.Tipo} para {macacoDestinatario}");
+            macacoRemetente.DarItem(macacoDestinatario, itemDoado);
+            Console.WriteLine($"O macaco {macacoRemetente.Nome} deu um item para {macacoDestinatario}");
         }
         catch (System.Exception ex)
         {

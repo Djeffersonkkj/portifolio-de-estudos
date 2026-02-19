@@ -14,10 +14,10 @@ class InicializadorDados
         Console.WriteLine("Inicializando a floresta com dados de teste...");
 
         // 1. Criar Bananas
-        _controller.BananaServices.CriarBanana("Nanica", 20); // Energia média
-        _controller.BananaServices.CriarBanana("Prata", 15);  // Energia baixa
-        _controller.BananaServices.CriarBanana("da Terra", 30);   // Energia alta
-        _controller.BananaServices.CriarBanana("Ouro", 10); // Banana ruim (veneno em potencial)
+        _controller.IconsumivelServices.CriarBanana("Nanica", 20); // Energia média
+        _controller.IconsumivelServices.CriarBanana("Prata", 15);  // Energia baixa
+        _controller.IconsumivelServices.CriarBanana("da Terra", 30);   // Energia alta
+        _controller.IconsumivelServices.CriarBanana("Ouro", 10); // Banana ruim (veneno em potencial)
 
         // 2. Criar Bolsas
         _controller.BolsaServices.CriarBolsa("Couro", 10);    // Cabe bastante

@@ -1,16 +1,16 @@
-class Banana : Iconsumivel
+class Monster : Iconsumivel
 {
-    public string Tipo { get; private set; }
+    public string Sabor { get; private set; }
     public decimal Energia { get; private set; }
 
-    public Banana(string tipo, decimal energia)
+    public Monster(string sabor, decimal energia)
     {
-        if (string.IsNullOrWhiteSpace(tipo))
+        if (string.IsNullOrWhiteSpace(sabor))
         {
             throw new ArgumentException("O tipo não pode ser nulo ou conter apenas espaços.");
         }
 
-        Tipo = tipo;
+        Sabor = sabor;
         Energia = energia;
     }
 
@@ -28,6 +28,6 @@ class Banana : Iconsumivel
 
     public override string ToString()
     {
-        return $"Tipo: Banana {Tipo} | Energia: {Energia}";
+        return $"Tipo: Sabor {Sabor} | Energia: {Energia}";
     }
 }

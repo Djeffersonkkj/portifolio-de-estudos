@@ -1,10 +1,10 @@
 class Bolsa
 {  
-    private readonly List<Banana> _bananas = [];
+    private readonly List<Iconsumivel> _itens = [];
 
     public string Material { get; private set; }
     public int LimiteArmazenamento { get; private set; }
-    public IReadOnlyList<Banana> Bananas => _bananas;
+    public IReadOnlyList<Iconsumivel> Itens => _itens;
 
     public Bolsa(string material, int limiteArmazenamento)
     {
@@ -13,26 +13,26 @@ class Bolsa
 
         Material = material;
         LimiteArmazenamento = limiteArmazenamento;
-        _bananas = [];
+        _itens = [];
     }
 
-    public void ArmazenarBanana(Banana banana)
+    public void Armazenaritem(Iconsumivel item)
     {
-        if (_bananas.Count == LimiteArmazenamento)
+        if (_itens.Count == LimiteArmazenamento)
         {
             throw new InvalidOperationException("Limite de armazenamento atingido.");
         }
-        _bananas.Add(banana);
+        _itens.Add(item);
     }
 
-    public void RemoverBanana(Banana banana)
+    public void RemoverItem(Iconsumivel item)
     {
-        _bananas.Remove(banana);
+        _itens.Remove(item);
     }
 
     public override string ToString()
     {
-        return $"Material: {Material} | Armazenamento: {Bananas.Count}/{LimiteArmazenamento}";
+        return $"Material: {Material} | Armazenamento: {_itens.Count}/{LimiteArmazenamento}";
     }
 
 }

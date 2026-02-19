@@ -2,16 +2,16 @@ using System.Security.Cryptography;
 
 class MainController
 {
-    public BananaServices BananaServices { get; private set; }
+    public IconsumivelServices IconsumivelServices { get; private set; }
     public BolsaServices BolsaServices { get; private set; }
     public MacacoServices MacacoServices { get; private set; }
 
     public MainController(
-        BananaServices bananaServices,
+        IconsumivelServices iconsumivelServices,
         BolsaServices bolsaServices,
         MacacoServices macacoServices)
     {
-        BananaServices = bananaServices;
+        IconsumivelServices = iconsumivelServices;
         BolsaServices = bolsaServices;
         MacacoServices = macacoServices;
     }

@@ -1,11 +1,11 @@
 class Floresta
 {
     private readonly List<Macaco> _macacos = [];
-    private readonly List<Banana> _bananas = [];
+    private readonly List<Iconsumivel> _itens = [];
     private readonly List<Bolsa> _bolsas = [];
 
     public IReadOnlyList<Macaco> Macacos => _macacos;
-    public IReadOnlyList<Banana> Bananas => _bananas;
+    public IReadOnlyList<Iconsumivel> Itens => _itens;
     public IReadOnlyList<Bolsa> Bolsas => _bolsas;
     
 
@@ -19,14 +19,14 @@ class Floresta
         _macacos.Remove(macaco);
     }
 
-    public void AdicionarBanana(Banana banana)
+    public void AdicionarItem(Iconsumivel item)
     {
-        _bananas.Add(banana);
+        _itens.Add(item);
     }
 
-    public void RemoverBanana(Banana banana)
+    public void RemoverItem(Iconsumivel item)
     {
-        _bananas.Remove(banana);
+        _itens.Remove(item);
     }
 
     public void AdicionarBolsa(Bolsa Bolsa)

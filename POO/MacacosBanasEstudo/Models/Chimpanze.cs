@@ -2,26 +2,26 @@ class Chimpanze : Macaco
 {
     public Chimpanze(string nome) : base(nome, 100.0m, 1.0m){}
 
-    public void EnvenenarBanana(Macaco alvo)
+    public void EnvenenarComida(Macaco alvo)
     {
         decimal energiaGasta = 10.0m;
         Bolsa bolsaAlvo = alvo.BolsaVestida;
-        int quantidadeBananasNaBolsa = bolsaAlvo.Bananas.Count;
-        int sorteioBanana = Dado.RolarIndex(quantidadeBananasNaBolsa);
-        Banana bananaEnvenenada = bolsaAlvo.Bananas[sorteioBanana];
+        int quantidadeItensNaBolsa = bolsaAlvo.Itens.Count;
+        int sorteioItens = Dado.RolarIndex(quantidadeItensNaBolsa);
+        Iconsumivel comidaEnvenenada = bolsaAlvo.Itens[sorteioItens];
 
         if (Energia <= energiaGasta)
         {
             throw new InvalidOperationException("Energia Insuficiente.");
         }
 
-        bananaEnvenenada.Envenenar(15);
+        comidaEnvenenada.Envenenar(15);
         GastarEnergia(energiaGasta);
     }
 
     public override string UsarHabilidadeEspecial(Macaco alvo)
     {
-        EnvenenarBanana(alvo);
+        EnvenenarComida(alvo);
         if (alvo == this)
         {
             return $"O chimpanzé {Nome} envenenou a própria banana";

@@ -24,10 +24,10 @@ class MacacoServices
         _floresta.AdicionarMacaco(novoGorila);
     }
 
-    public IReadOnlyList<Banana> ObterBananas(Macaco macaco)
+    public IReadOnlyList<Iconsumivel> ObterItens(Macaco macaco)
     {
         Bolsa bolsa = macaco.BolsaVestida;
-        return bolsa.Bananas;
+        return bolsa.Itens;
     }
 
     public IReadOnlyList<Macaco> ObterTodosMacacos()

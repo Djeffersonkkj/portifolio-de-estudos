@@ -1,10 +1,10 @@
 ﻿Floresta floresta = new();
-BananaServices bananaServices = new(floresta);
+IconsumivelServices iconsumivelServices = new(floresta);
 BolsaServices bolsaServices = new(floresta);
 MacacoServices macacoServices = new(floresta);
 
 MainController Controller = new(
-    bananaServices,
+    iconsumivelServices,
     bolsaServices,
     macacoServices);
     
@@ -14,12 +14,12 @@ inicializador.Semear();
 
 MacacoView macacoView = new(Controller);
 BolsaView bolsaView = new(Controller);
-BananaView bananaView = new(Controller); 
+IconsumivelView iconsumivelView = new(Controller); 
 MainView mainView = new(
     Controller, 
     macacoView, 
     bolsaView, 
-    bananaView);
+    iconsumivelView);
 
 bool loop = true;
 
@@ -71,7 +71,7 @@ while (loop)
                     break;
 
                 case "7":
-                    mainView.DarBanana();
+                    mainView.DarItem();
                     break;
 
                 case "8":
@@ -86,7 +86,7 @@ while (loop)
             break;
 
         case "2":
-            bananaView.CadastrarBanana();
+            iconsumivelView.CadastrarBanana();
             break;
 
         case "3":

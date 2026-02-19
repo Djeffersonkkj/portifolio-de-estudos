@@ -1,8 +1,8 @@
-class BananaView
+class IconsumivelView
 {
     private readonly MainController _mainController;
 
-    public BananaView(MainController mainController)
+    public IconsumivelView(MainController mainController)
     {
         _mainController = mainController;
     }
@@ -20,7 +20,7 @@ class BananaView
             Console.Write("Quanta energia a banana dá? ");
             energiaBanana = decimal.Parse(Console.ReadLine());
 
-            _mainController.BananaServices.CriarBanana(tipoBanana, energiaBanana);
+            _mainController.IconsumivelServices.CriarBanana(tipoBanana, energiaBanana);
 
             Console.Clear();
             Console.WriteLine($"Uma banana {tipoBanana} brotou na floresta!");
@@ -32,27 +32,26 @@ class BananaView
         }
     }
 
-    public void ListarBananas()
+    public void ListarItens()
     {
         Console.Clear();
-        IReadOnlyList<Banana> bananas = _mainController.BananaServices.ObterTodasBananas();
-
+        IReadOnlyList<Iconsumivel> itens = _mainController.IconsumivelServices.ObterTodosItens();
         Console.WriteLine("Bananas nas bananeiras:\n");
-        for (int banana = 0; banana < bananas.Count; banana++)
+        for (int banana = 0; banana < itens.Count; banana++)
         {
-            string DescricaoBanana = bananas[banana].ToString();
+            string DescricaoBanana = itens[banana].ToString();
             Console.WriteLine($"[{banana}] {DescricaoBanana}");
         }
     }
 
-    public Banana SelecionarBananaFloresta(string acao)
+    public Iconsumivel SelecionarItemFloresta(string acao)
     {
         int indexBanana;
-        Banana bananaPega;
+        Iconsumivel bananaPega;
 
         Console.Write(acao);
         indexBanana = int.Parse(Console.ReadLine());
-        bananaPega = _mainController.BananaServices.SelecionarBananaPorIndex(indexBanana);
+        bananaPega = _mainController.IconsumivelServices.SelecionarItemPorIndex(indexBanana);
 
         return bananaPega;
     }
