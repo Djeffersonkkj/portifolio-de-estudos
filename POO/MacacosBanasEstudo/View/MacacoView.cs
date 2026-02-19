@@ -19,9 +19,9 @@ class MacacoView
 
             3  | Pegar Bolsa
             4  | Largar Bolsa
-            5  | Pegar Banana
-            6  | Comer Banana
-            7  | Dar Banana
+            5  | Pegar Item
+            6  | Comer Item
+            7  | Dar Item
 
             8  | Usar Habilidade Especial
 
@@ -96,6 +96,7 @@ class MacacoView
             string MacacoDescricao = macacos[i].ToString();
             Console.WriteLine($"[{i}] {MacacoDescricao}");
         }
+        Console.WriteLine();
     }
 
     public Macaco SelecionarMacaco(string acao)

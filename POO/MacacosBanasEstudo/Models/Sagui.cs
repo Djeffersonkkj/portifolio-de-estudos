@@ -31,4 +31,12 @@ class Sagui : Macaco
         RoubarBolsa(alvo);
         return $"O sagui {Nome} roubou a bolsa de {alvo.Nome}";
     }
+
+    public override string ToString()
+    {
+        int limiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
+        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Itens.Count : 0;
+
+        return $"Sagui: {Nome} | BolsaVestida: {quantidadeBananas}/{limiteArmazenamento} | Energia: {Energia}";
+    }
 }

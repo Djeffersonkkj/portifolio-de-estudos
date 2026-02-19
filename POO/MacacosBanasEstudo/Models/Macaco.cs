@@ -88,11 +88,4 @@ using System.ComponentModel;
 
     public abstract string UsarHabilidadeEspecial (Macaco alvo);
 
-    public override string ToString()
-    {
-        int limiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
-        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Itens.Count : 0;
-
-        return $"Nome: {Nome} | BolsaVestida: {quantidadeBananas}/{limiteArmazenamento} | Energia: {Energia}";
-    }
 }

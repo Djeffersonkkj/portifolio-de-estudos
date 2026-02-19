@@ -8,7 +8,7 @@ MainController Controller = new(
     bolsaServices,
     macacoServices);
     
-InicializadorDados inicializador = new(Controller);
+InicializadorDados inicializador = new(Controller, floresta);
 inicializador.Semear();
 
 
@@ -63,11 +63,11 @@ while (loop)
                     break;
 
                 case "5":
-                    mainView.PegarBanana();
+                    mainView.PegarItem();
                     break;
 
                 case "6":
-                    mainView.ComerBanana();
+                    mainView.ComerItem();
                     break;
 
                 case "7":

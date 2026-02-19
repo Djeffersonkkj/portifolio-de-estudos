@@ -74,23 +74,23 @@ class MainView
         }
     }
 
-    public void PegarBanana()
+    public void PegarItem()
     {
         try
         {
             Macaco macacoPegador;
-            Iconsumivel bananaPega;
+            Iconsumivel itemPego;
 
             MacacoView.ListarMacacos();
-            macacoPegador = MacacoView.SelecionarMacaco("Qual o macaco que vai pegar a banana? ");
+            macacoPegador = MacacoView.SelecionarMacaco("Qual o macaco que vai pegar o item? ");
 
             BananaView.ListarItens();
-            bananaPega = BananaView.SelecionarItemFloresta($"Qual banana o {macacoPegador.Nome} vai pegar? ");
+            itemPego = BananaView.SelecionarItemFloresta($"Qual item o {macacoPegador.Nome} vai pegar? ");
 
             Console.Clear();
-            macacoPegador.Pegaritem(bananaPega);
+            macacoPegador.Pegaritem(itemPego);
             Console.WriteLine($"O macaco {macacoPegador.Nome} pegou um item.");
-            _mainController.IconsumivelServices.RemoveritemDaFloresta(bananaPega);
+            _mainController.IconsumivelServices.RemoveritemDaFloresta(itemPego);
             
         }
         catch (System.Exception ex)
@@ -100,7 +100,7 @@ class MainView
         }
     }
 
-    public void ComerBanana()
+    public void ComerItem()
     {
         try
         {
@@ -109,17 +109,17 @@ class MainView
             Iconsumivel itemComido;
 
             MacacoView.ListarMacacos();
-            macacoComedor = MacacoView.SelecionarMacaco("Qual macaco vai comer banana? ");
+            macacoComedor = MacacoView.SelecionarMacaco("Qual macaco vai comer o item? ");
             
             MacacoView.ListarBananas(macacoComedor);
-            itemComido = MacacoView.SelecionarItem(macacoComedor, "Qual banana será comida? ");
+            itemComido = MacacoView.SelecionarItem(macacoComedor, "Qual item será comido? ");
 
             Console.Clear();
             Console.WriteLine($"O macaco {macacoComedor.Nome} Comeu algo e recebeu {itemComido.Energia} em energia.");
             macacoComedor.ComerConsumivel(itemComido);
             if (macacoComedor.Energia <= 0)
             {
-                Console.WriteLine($"O macaco {macacoComedor.Nome} comeu uma banana ruim e morreu.");
+                Console.WriteLine($"O macaco {macacoComedor.Nome} comeu um item ruim e morreu.");
                 _mainController.MacacoServices.MatarMacaco(macacoComedor);
             }
         }

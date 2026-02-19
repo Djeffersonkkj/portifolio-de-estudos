@@ -37,4 +37,12 @@ class Gorila : Macaco
         }
         return $"O macaco {Nome} tentou bater em {alvo.Nome} e falhou.";
     }
+
+    public override string ToString()
+    {
+        int limiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
+        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Itens.Count : 0;
+
+        return $"Gorila: {Nome} | BolsaVestida: {quantidadeBananas}/{limiteArmazenamento} | Energia: {Energia}";
+    }
 }

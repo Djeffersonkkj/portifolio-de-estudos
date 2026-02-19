@@ -24,8 +24,16 @@ class Chimpanze : Macaco
         EnvenenarComida(alvo);
         if (alvo == this)
         {
-            return $"O chimpanzé {Nome} envenenou a própria banana";
+            return $"O chimpanzé {Nome} envenenou o propria banana";
         }
-        return $"O chimpanzé {Nome} envenenou uma banana de {alvo.Nome}";
+        return $"O chimpanzé {Nome} envenenou um item de {alvo.Nome}";
+    }
+
+    public override string ToString()
+    {
+        int limiteArmazenamento = BolsaVestida != null ? BolsaVestida.LimiteArmazenamento : 0;
+        int quantidadeBananas = BolsaVestida != null ? BolsaVestida.Itens.Count : 0;
+
+        return $"Chimpanzé: {Nome} | BolsaVestida: {quantidadeBananas}/{limiteArmazenamento} | Energia: {Energia}";
     }
 }

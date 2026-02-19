@@ -28,6 +28,6 @@ class Banana : Iconsumivel
 
     public override string ToString()
     {
-        return $"Tipo: Banana {Tipo} | Energia: {Energia}";
+        return $"Banana: {Tipo} | Energia: {Energia}";
     }
 }
