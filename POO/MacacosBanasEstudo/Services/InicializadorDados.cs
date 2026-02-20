@@ -3,10 +3,12 @@
 class InicializadorDados
 {
     private readonly MainController _controller;
+    private readonly Floresta _floresta;
 
-    public InicializadorDados(MainController controller)
+    public InicializadorDados(MainController controller, Floresta floresta)
     {
         _controller = controller;
+        _floresta = floresta;
     }
 
     public void Semear()
@@ -23,6 +25,8 @@ class InicializadorDados
         _controller.BolsaServices.CriarBolsa("Couro", 10);    // Cabe bastante
         _controller.BolsaServices.CriarBolsa("Palha", 3);     // Cabe pouco
         _controller.BolsaServices.CriarBolsa("Folha", 5);
+        Monster monster = new("Maçã verde", 100);
+        _floresta.AdicionarItem(monster);
 
         // 3. Criar Macacos (Um de cada tipo para testar as mecânicas específicas)
         

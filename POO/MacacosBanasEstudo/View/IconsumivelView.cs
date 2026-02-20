@@ -42,6 +42,7 @@ class IconsumivelView
             string DescricaoBanana = itens[banana].ToString();
             Console.WriteLine($"[{banana}] {DescricaoBanana}");
         }
+        Console.WriteLine();
     }
 
     public Iconsumivel SelecionarItemFloresta(string acao)

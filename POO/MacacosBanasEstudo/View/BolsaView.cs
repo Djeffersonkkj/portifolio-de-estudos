@@ -44,6 +44,7 @@ class BolsaView
             string DescricaoBolsa = bolsas[i].ToString();
             Console.WriteLine($"[{i}] {DescricaoBolsa}");
         }
+        Console.WriteLine();
     }
 
     public Bolsa SelecionarBolsa(string acao)

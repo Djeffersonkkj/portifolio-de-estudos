@@ -28,6 +28,6 @@ class Monster : Iconsumivel
 
     public override string ToString()
     {
-        return $"Tipo: Sabor {Sabor} | Energia: {Energia}";
+        return $"Monster: {Sabor} | Energia: {Energia}";
     }
 }
