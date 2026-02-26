@@ -1,0 +1,15 @@
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\bin\Debug\net10.0\DanyelsMaterial.exe
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\bin\Debug\net10.0\DanyelsMaterial.deps.json
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\bin\Debug\net10.0\DanyelsMaterial.runtimeconfig.json
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\bin\Debug\net10.0\DanyelsMaterial.dll
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\bin\Debug\net10.0\DanyelsMaterial.pdb
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.AssemblyInfoInputs.cache
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.AssemblyInfo.cs
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.csproj.CoreCompileInputs.cache
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.sourcelink.json
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.dll
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\refint\DanyelsMaterial.dll
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.pdb
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\DanyelsMaterial.genruntimeconfig.cache
+C:\repos\portifolio-de-estudos\POO\DanyelsMaterial\obj\Debug\net10.0\ref\DanyelsMaterial.dll
