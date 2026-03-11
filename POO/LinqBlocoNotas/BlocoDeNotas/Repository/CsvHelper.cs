@@ -9,7 +9,7 @@ public static class CsvHelper
     public static string[] VarrerUsuario(string email, string senha)
     {
         var usuario = File.ReadAllLines
-            (@"C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\Data\Usuario.csv")
+            ("Data/Usuario.csv")
             .Skip(1)
             .Select( linha => linha.Split(','))
             .FirstOrDefault( colunas => colunas[2] == email && colunas[3] == senha);
@@ -20,7 +20,7 @@ public static class CsvHelper
     public static IEnumerable<string[]> VarrerNota(Usuario usuario)
     {
         var notas = File.ReadAllLines
-            (@"C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\Data\Nota.csv")
+            ("Data/Nota.csv")
             .Skip(1)
             .Select( linha => linha.Split(','))
             .Where(coluna => int.Parse(coluna[1]) == usuario.Id);

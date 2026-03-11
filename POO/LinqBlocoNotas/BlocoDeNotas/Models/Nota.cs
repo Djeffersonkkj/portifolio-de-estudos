@@ -22,9 +22,9 @@ public class Nota
     public string ExibirNota()
     {
         return 
-        @$"
-            {Titulo.ToUpper()}
-            {Texto}
-        ";
+        @$"========================================================================
+    {Titulo.ToUpper()}
+
+    {Texto}";
     }
 }
