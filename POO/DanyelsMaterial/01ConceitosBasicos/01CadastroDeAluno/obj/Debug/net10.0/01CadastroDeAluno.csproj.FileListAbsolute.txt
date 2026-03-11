@@ -1,0 +1,15 @@
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.GeneratedMSBuildEditorConfig.editorconfig
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.AssemblyInfoInputs.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.AssemblyInfo.cs
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.csproj.CoreCompileInputs.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.sourcelink.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\bin\Debug\net10.0\01CadastroDeAluno.exe
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\bin\Debug\net10.0\01CadastroDeAluno.deps.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\bin\Debug\net10.0\01CadastroDeAluno.runtimeconfig.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\bin\Debug\net10.0\01CadastroDeAluno.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\bin\Debug\net10.0\01CadastroDeAluno.pdb
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\refint\01CadastroDeAluno.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.pdb
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\01CadastroDeAluno.genruntimeconfig.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01CadastroDeAluno\obj\Debug\net10.0\ref\01CadastroDeAluno.dll

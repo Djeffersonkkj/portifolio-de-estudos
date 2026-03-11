@@ -1,0 +1,15 @@
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.GeneratedMSBuildEditorConfig.editorconfig
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.AssemblyInfoInputs.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.AssemblyInfo.cs
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.csproj.CoreCompileInputs.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.sourcelink.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\bin\Debug\net10.0\02ControleEstoqueSimples.exe
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\bin\Debug\net10.0\02ControleEstoqueSimples.deps.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\bin\Debug\net10.0\02ControleEstoqueSimples.runtimeconfig.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\bin\Debug\net10.0\02ControleEstoqueSimples.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\bin\Debug\net10.0\02ControleEstoqueSimples.pdb
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\refint\02ControleEstoqueSimples.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.pdb
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\02ControleEstoqueSimples.genruntimeconfig.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\02ControleEstoqueSimples\obj\Debug\net10.0\ref\02ControleEstoqueSimples.dll

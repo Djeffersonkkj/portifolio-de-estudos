@@ -1,0 +1,15 @@
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\bin\Debug\net10.0\03FichaTecnicaVeiculo.exe
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\bin\Debug\net10.0\03FichaTecnicaVeiculo.deps.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\bin\Debug\net10.0\03FichaTecnicaVeiculo.runtimeconfig.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\bin\Debug\net10.0\03FichaTecnicaVeiculo.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\bin\Debug\net10.0\03FichaTecnicaVeiculo.pdb
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.GeneratedMSBuildEditorConfig.editorconfig
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.AssemblyInfoInputs.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.AssemblyInfo.cs
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.csproj.CoreCompileInputs.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.sourcelink.json
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\refint\03FichaTecnicaVeiculo.dll
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.pdb
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\03FichaTecnicaVeiculo.genruntimeconfig.cache
+C:\djota\portifolio-de-estudos\POO\DanyelsMaterial\01ConceitosBasicos\03FichaTecnicaVeiculo\obj\Debug\net10.0\ref\03FichaTecnicaVeiculo.dll
