@@ -1,0 +1,15 @@
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\bin\Debug\net10.0\BlocoDeNotas.exe
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\bin\Debug\net10.0\BlocoDeNotas.deps.json
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\bin\Debug\net10.0\BlocoDeNotas.runtimeconfig.json
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\bin\Debug\net10.0\BlocoDeNotas.dll
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\bin\Debug\net10.0\BlocoDeNotas.pdb
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.GeneratedMSBuildEditorConfig.editorconfig
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.AssemblyInfoInputs.cache
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.AssemblyInfo.cs
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.csproj.CoreCompileInputs.cache
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.sourcelink.json
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.dll
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\refint\BlocoDeNotas.dll
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.pdb
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\BlocoDeNotas.genruntimeconfig.cache
+C:\djota\portifolio-de-estudos\POO\LinqBlocoNotas\BlocoDeNotas\obj\Debug\net10.0\ref\BlocoDeNotas.dll
